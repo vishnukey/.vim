@@ -16,6 +16,8 @@ function! RunFile()
                 Silent node %
         elseif l:ext == "rb"
                 Silent ruby %
+        elseif l:ext == "go"
+                Silent go %
         else
                 if filereadble('./Makefile')
                         make
