@@ -1,24 +1,28 @@
+command! -nargs=1 Silent
+\ | execute ':silent !'.<q-args>
+\ | execute ':redraw!'
+
 function! RunFile()
         let l:ext=expand('%:e')
         if l:ext == "rkt"
-                silent !racket %
+                Silent racket %
         elseif l:ext == "py"
-                silent !python %
+                Silent python %
         elseif l:ext == "js"
-                silent !node %
+                Silent node %
         elseif l:ext == "rb"
-                silent !ruby %
+                Silent ruby %
         endif
 endfunction
 
 function! LoadREPL()
         let l:ext=expand('%:e')
         if l:ext == "rb"
-                silent !irb -I . -r %
+                Silent irb -I . -r %
         elseif l:ext == "py"
-                silent !python -i %
+                Silent python -i %
         elseif l:ext == "hs"
-                silent !ghci %
+                Silent ghci %
         endif
 endfunction
 
