@@ -3,6 +3,9 @@ command! -nargs=1 Silent
 \ | execute ':silent !'.<q-args>
 \ | execute ':redraw!'
 
+command! -nargs=+ Git !git <args>
+command! -nargs=+ Sgit Silent git <args>
+
 function! RunFile()
         let l:ext=expand('%:e')
         if l:ext == "rkt"
