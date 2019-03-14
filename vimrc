@@ -1,3 +1,4 @@
+"retrieved from https://stackoverflow.com/a/2803985
 command! -nargs=1 Silent
 \ | execute ':silent !'.<q-args>
 \ | execute ':redraw!'
