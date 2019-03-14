@@ -1,24 +1,24 @@
 function! RunFile()
         let l:ext=expand('%:e')
         if l:ext == "rkt"
-                !racket %
+                silent !racket %
         elseif l:ext == "py"
-                !python %
+                silent !python %
         elseif l:ext == "js"
-                !node %
+                silent !node %
         elseif l:ext == "rb"
-                !ruby %
+                silent !ruby %
         endif
 endfunction
 
 function! LoadREPL()
         let l:ext=expand('%:e')
         if l:ext == "rb"
-                !irb -I . -r %
+                silent !irb -I . -r %
         elseif l:ext == "py"
-                !python -i %
+                silent !python -i %
         elseif l:ext == "hs"
-                !ghci %
+                silent !ghci %
         endif
 endfunction
 
