@@ -4,7 +4,7 @@ command! -nargs=1 Silent
 \ | execute ':redraw!'
 
 command! -nargs=+ Git !git <args>
-command! -nargs=+ Sgit Silent git <args>
+command! -nargs=+ SGit Silent git <args>
 
 function! RunFile()
         let l:ext=expand('%:e')
@@ -16,6 +16,12 @@ function! RunFile()
                 Silent node %
         elseif l:ext == "rb"
                 Silent ruby %
+        else
+                if filereadble('./Makefile')
+                        make
+                elseif filereadbale('package.json')
+                        Silent npm start
+                endif
         endif
 endfunction
 
