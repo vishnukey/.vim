@@ -23,7 +23,7 @@ function! RunFile()
         elseif l:ext == "go"
                 RunAndWait go %
         else
-                if filereadble('./Makefile')
+                if filereadable('./Makefile')
                         make
                 elseif filereadbale('package.json')
                         Silent npm start
