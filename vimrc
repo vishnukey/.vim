@@ -3,21 +3,25 @@ command! -nargs=1 Silent
 \ | execute ':silent !'.<q-args>
 \ | execute ':redraw!'
 
+command! -nargs=1 RunAndWait
+                        \ | execute ":!".<q-args>
+                        \ | execute ":redraw!"
+
 command! -nargs=+ Git !git <args>
 command! -nargs=+ SGit Silent git <args>
 
 function! RunFile()
         let l:ext=expand('%:e')
         if l:ext == "rkt"
-                Silent racket %
+                RunAndWait racket %
         elseif l:ext == "py"
-                Silent python %
+                RunAndWait python %
         elseif l:ext == "js"
-                Silent node %
+                RunAndWait node %
         elseif l:ext == "rb"
-                Silent ruby %
+                RunAndWait ruby %
         elseif l:ext == "go"
-                Silent go %
+                RunAndWait go %
         else
                 if filereadble('./Makefile')
                         make
