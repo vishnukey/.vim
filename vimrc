@@ -111,3 +111,6 @@ nnoremap <C-o> :Tex<CR>
 nnoremap <f5> :call RunFile()<CR>
 nnoremap <F6> :call LoadREPL()<CR>
 
+" UTF-8 encoding
+set encoding=utf-8
+
